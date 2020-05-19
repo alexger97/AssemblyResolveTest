@@ -76,7 +76,7 @@ namespace AssemblyResolveTest
 
         private static Assembly MyResolveEventHandler(object sender, ResolveEventArgs args)
         {
-            Console.WriteLine($" Resolving assembly name: {args.Name}");
+            Console.WriteLine($" Resolving assembly name: {args.Name}/");
             return null;
         }
     }
