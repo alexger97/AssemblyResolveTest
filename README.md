@@ -8,4 +8,4 @@ Before :
 ![](http://images.vfl.ru/ii/1589891831/f16d9820/30556389.png)
 
 After :1st_place_medal: 
-![](http://images.vfl.ru/ii/1589891613/9198a9a7/30556366.png)c
+![](http://images.vfl.ru/ii/1589891613/9198a9a7/30556366.png)
