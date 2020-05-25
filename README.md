@@ -7,5 +7,5 @@ The changes I proposed in the Mono core helped to get an identical result in Mon
 Before :
 ![](http://images.vfl.ru/ii/1589891831/f16d9820/30556389.png)
 
-After :1st_place_medal: 
+After (became how in Framework 4.8) :1st_place_medal: 
 ![](http://images.vfl.ru/ii/1589891613/9198a9a7/30556366.png)
