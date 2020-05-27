@@ -68,7 +68,7 @@ namespace AssemblyResolveTest
             var t15 = Type.GetType("System.ServiceModel.Configuration.DiagnosticSection, System.ServiceModel2, PublicKeyToken=b77a5c561934e089, Version=4.0.0.0, Culture=neutral");
             Console.WriteLine("*** Type 15 ***");
 
-            var t16 = Type.GetType("System.ServiceModel.Configuration.DiagnosticSection    , System.ServiceModel2, PublicKeyToken=b77a5c561934e089, Version=4.0.0.0, Culture=neutral    ");
+            var t16 = Type.GetType("System.ServiceModel.Configuration.DiagnosticSection    , System.ServiceModel2   , PublicKeyToken=b77a5c561934e089  , Version=4.0.0.0  , Culture=neutral    ");
             Console.WriteLine("*** Type 16 ***");
 
 
