@@ -12,7 +12,31 @@ namespace AssemblyResolveTest
     {
 
 
-        static void Main(string[] args)
+        public static Dictionary<int, string> Original = new Dictionary<int, string>()
+        {
+            {0, "CommonComponents.Infra.Zero.Uc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"},
+            {1, "CommonComponents.Infra.Zero.Uc"},
+            {2, "CommonComponents.Infra.Zero.Uc"},
+            {3, "System.ServiceModel2, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"},
+            {4, "System.ServiceModel2, Version=4.0.0.0, Culture=neutral"},
+            {5, "System.ServiceModel2, Version=4.0.0.0, Culture=neutral"},
+            {6, "System.ServiceModel2, Version=4.0.0.0"},
+            {7, "System.ServiceModel2, Version=4.0.0.0"},
+            {8, "System.ServiceModel2, Version=4.0.0.0, PublicKeyToken=b77a5c561934e089"},
+            {9, "System.ServiceModel2, Version=4.0.0.0, PublicKeyToken=b77a5c561934e089"},
+            {10, "System.ServiceModel2, Culture=neutral"},
+            {11, "System.ServiceModel2, Culture=neutral"},
+            {12, "System.ServiceModel2, Culture=neutral2"},
+            {13, "System.ServiceModel2, Version=4.0.0.0"},
+            {14, "System.ServiceModel2"},
+            {15, "System.ServiceModel2, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"},
+            {16, "System.ServiceModel2, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"},
+            {17, "System.Core2, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"},
+            {18, "System.Core2, Version=4.0.0.0, Culture=neutral, PublicKeyToken=null"},
+        };
+
+        static int i = 0;
+        static int Main(string[] args)
         {
             AppDomain currentDomain = AppDomain.CurrentDomain;
 
@@ -74,13 +98,28 @@ namespace AssemblyResolveTest
             var t17 = Type.GetType("System.ServiceModel.Configuration.DiagnosticSection, System.Core2, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089");
             Console.WriteLine("*** Type 17 ***");
 
+            var t18 = Type.GetType("System.ServiceModel.Configuration.DiagnosticSection, System.Core2, Version=4.0.0.0, Culture=neutral, PublicKeyToken=null");
+            Console.WriteLine("*** Type 18 ***");
 
+            Console.WriteLine("Test is OK");
+            return 0;
         }
 
         private static Assembly MyResolveEventHandler(object sender, ResolveEventArgs args)
         {
+            string value = "";
+
             Console.WriteLine($" Resolving assembly name: {args.Name}/");
-            return null;
+            if (Original.TryGetValue(i, out value))
+            {
+                if (value.Equals(args.Name))
+                    if (i < Original.Count - 1)
+                        i++;
+
+                return null;
+            }
+            throw new Exception("Resolving assembly parametrs and original parametrs are not equal");
+
         }
     }
 }
